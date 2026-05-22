@@ -7,9 +7,9 @@ public class TicTacToe {
     }
 
     private static final int SIZE = 3;
-    private static final char PLAYER = 'X';
-    private static final char COMPUTER = 'O';
-    private static final char EMPTY = ' ';
+    public static final char PLAYER = 'X';
+    public static final char COMPUTER = 'O';
+    public static final char EMPTY = ' ';
 
     private final char[][] board = new char[SIZE][SIZE];
 
@@ -21,25 +21,12 @@ public class TicTacToe {
         }
     }
 
-    public void displayBoard() {
-        for (int i = 0; i < SIZE; i++) {
-            System.out.print(" ");
-            for (int j = 0; j < SIZE; j++) {
-                System.out.print(board[i][j]);
-                if (j != SIZE - 1) {
-                    System.out.print(" | ");
-                }
-            }
-            System.out.println();
-            if (i != SIZE - 1) {
-                System.out.println("---+---+---");
-            }
-        }
+    public char getCell(int row, int col) {
+        return board[row][col];
     }
 
     public boolean placeMove(int row, int col, char piece) {
         if (board[row][col] != EMPTY) {
-            System.out.println("该位置已被占用，请重新输入...");
             return false;
         }
         board[row][col] = piece;
